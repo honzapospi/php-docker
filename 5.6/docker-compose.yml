@@ -1,0 +1,17 @@
+version: "2"
+services:
+  web:
+    build: .
+    ports: 
+      - "8080:80"
+    depends_on: 
+      - db
+    volumes:
+      - ./project:/var/www/html
+  db:
+    image: mysql:5.6
+    environment:
+        MYSQL_DATABASE: "test"
+        MYSQL_USER: "test"
+        MYSQL_PASSWORD: "test"
+        MYSQL_ROOT_PASSWORD: "password"
